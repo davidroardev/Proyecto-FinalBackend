@@ -1,14 +1,13 @@
 import express, { response, Router,} from "express";
-import { getAutos } from "./controllers/autos_controller";
+
+import { autosRoutes } from "./routes/autos_routes";
 
 require('dotenv').config();
 
 const app = express();
 const port = process.env.EXPRESS_PORT;
 
-const autosRoutes = Router();
-
-autosRoutes.get('/getautos', getAutos);
+app.use(express.json())
 
 app.use(autosRoutes);
 
