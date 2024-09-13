@@ -7,8 +7,8 @@ require('dotenv').config();
 const app = express();
 const port = process.env.EXPRESS_PORT;
 
-app.use(express.json())
 
+app.use(express.json())
 app.use(autosRoutes);
 
 app.listen(port, () => {
