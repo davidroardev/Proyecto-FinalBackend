@@ -1,11 +1,12 @@
-import express, { response } from "express";
+import express, { response,} from "express";
+import pool from "./database/db_coneccion";
 
 require('dotenv').config();
 
 const app = express();
 const port = process.env.EXPRESS_PORT;
 
-app.get('/', (req,res) => {
+app.get('/', async (req,res) => {
     res.send('Hola Mundo ')
 });
 
