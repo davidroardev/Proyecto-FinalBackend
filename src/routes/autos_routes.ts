@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { createAutos, deleteAuto, getAutos, getAutosById, updateAutos } from "../controllers/autos_controller";
-import { authenticateToken } from "../controllers/user_controller";
+import { authenticateToken } from "../middleware/authorization";
+
 
 export const autosRoutes = Router ();
 
