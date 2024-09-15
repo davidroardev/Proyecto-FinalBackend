@@ -16,3 +16,30 @@ export const generateToken = async (req: Request, response:Response): Promise<Re
     }
 };
 
+export const createUser = async (req:Request ,res:Response): Promise <Response> =>{
+    const {userName,password, firstName,PhoneNumber,lastName,email}= req.body;
+    if (userName !==null && password !==null && email !==null){
+        try {
+            await pool.query('INSERT INTO users (user_name, password, first_name, phone_number,last_name,email) values($1,$2,$3,$4,$5,$6)',
+                    [userName,password, firstName,PhoneNumber,lastName,email]
+                );
+                return res.status(201).json({
+                    message: "User Created Successfully",
+                    user:{
+                        userName,
+                        password, 
+                        firstName,
+                        PhoneNumber,
+                        lastName,
+                        email
+                    }
+                });
+        } catch (error) {
+            console.error(error);
+                return res.status(500).json('Internal Server Error');
+        }
+    }else{
+        return res.status(500).json('Internal Server Error');
+    }
+};
+
