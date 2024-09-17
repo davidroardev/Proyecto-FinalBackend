@@ -10,7 +10,7 @@ import { Query, QueryResult } from "pg";
  */
 export const getAutos = async (req: Request, res:Response): Promise<Response> =>{
     try {
-        const response: QueryResult = await pool.query('SELECT * FROM autos;');
+        const response: QueryResult = await pool.query('SELECT * FROM autos ORDER BY auto_id;');
         return res.status(200).json(response.rows);
     } catch (error) {
         console.error(error);

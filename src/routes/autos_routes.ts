@@ -5,8 +5,8 @@ import { authenticateToken } from "../middleware/authorization";
 
 export const autosRoutes = Router ();
 
-autosRoutes.get('/getautos',authenticateToken, getAutos);
-autosRoutes.get('/getautosbyid/:id',authenticateToken, getAutosById);
-autosRoutes.post('/createautos',authenticateToken, createAutos);
-autosRoutes.delete('/deleteautos/:id',authenticateToken , deleteAuto);
-autosRoutes.put('/updateauto/:id',authenticateToken , updateAutos)
+autosRoutes.get('/getautos', getAutos);
+autosRoutes.get('/getautosbyid/:id', getAutosById);
+autosRoutes.post('/createautos', createAutos);
+autosRoutes.delete('/deleteautos/:id' , deleteAuto);
+autosRoutes.put('/updateauto/:id' , updateAutos)
